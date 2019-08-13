@@ -6,15 +6,18 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.7.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> 
 	</parent>
-	<groupId>br.com.api.starwars</groupId>
-	<artifactId>api-teste-simios</artifactId>
+	
+	<groupId>br.com.api.sequencia.dna</groupId>
+	<artifactId>api-detecta-sequencia-dna</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-teste-simios</name>
-	<description>API restFull</description>
+	<name>api-detecta-sequencia-dna</name>
+	<description>API restFull detecta sequencia de dna em Spring Boot.</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -28,6 +31,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jdk8</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 	</dependencies>
 
