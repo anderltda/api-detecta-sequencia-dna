@@ -1,4 +1,4 @@
-package br.com.api.simios;
+package br.com.api.sequencia.dna;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApiTesteSimiosApplicationTests {
+public class StartApiApplicationTests {
 
 	@Test
 	public void contextLoads() {

@@ -1,4 +1,4 @@
-package br.com.api.simios;
+package br.com.api.sequencia.dna;
 
 import java.io.IOException;
 
