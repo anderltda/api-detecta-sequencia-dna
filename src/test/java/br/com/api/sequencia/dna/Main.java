@@ -7,8 +7,9 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Pattern p = Pattern.compile("((\\\\d{9}))");
-        Matcher m = p.matcher("84676767676584");// r("846767676765");
+        String[] dna = {"CTGAGA", "CTATGC", "TATTGT", "AGAGGG", "TCCCCA", "TCACTG"};
+        Pattern p = Pattern.compile("\\$[ACGT]");
+        Matcher m = p.matcher("SATY");// r("846767676765");
 
         if (m.find()) {
             System.out.println("true");
