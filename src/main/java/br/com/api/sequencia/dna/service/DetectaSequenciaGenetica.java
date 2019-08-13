@@ -1,4 +1,4 @@
-package br.com.api.simios.service;
+package br.com.api.sequencia.dna.service;
 
 public interface DetectaSequenciaGenetica {
 	
