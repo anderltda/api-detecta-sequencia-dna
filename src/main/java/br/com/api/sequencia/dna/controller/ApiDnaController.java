@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.sequencia.dna.entity.Dna;
+import br.com.api.sequencia.dna.repository.DnaRepository;
 import br.com.api.sequencia.dna.service.DetectaSequenciaGeneticaService;
 
 /**
@@ -27,6 +28,9 @@ public class ApiDnaController {
     
     @Autowired
     private DetectaSequenciaGeneticaService detectaSequenciaGeneticaService;
+    
+    @Autowired
+    private DnaRepository dnaRepository;
 
     @RequestMapping(method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<String> version() {
@@ -40,7 +44,10 @@ public class ApiDnaController {
     	
     	boolean isSimian = detectaSequenciaGeneticaService.isSimian(dna.getDna());
     	
+    	
     	final String body = "{\"dna\": \"".concat(String.valueOf(isSimian).concat("\"}"));
+    	
+    	dnaRepository.save(dna);
     	
     	return new ResponseEntity<String>(body, isSimian ? HttpStatus.OK : HttpStatus.FORBIDDEN);
     }

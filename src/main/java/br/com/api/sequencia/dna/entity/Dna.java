@@ -2,6 +2,11 @@ package br.com.api.sequencia.dna.entity;
 
 import java.io.Serializable;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+@DynamoDBTable(tableName = "Dna")
 public class Dna implements Serializable {
 
 	/**
@@ -14,6 +19,8 @@ public class Dna implements Serializable {
 	/**
 	 * @return the dna
 	 */
+	@DynamoDBHashKey
+	@DynamoDBAttribute
 	public String[] getDna() {
 		return dna;
 	}

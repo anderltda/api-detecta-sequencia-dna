@@ -4,15 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Anderson Nascimento
  *
  */
 @Service
+@Transactional
 public class DetectaSequenciaGeneticaService {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(DetectaSequenciaGeneticaService.class);
@@ -22,7 +25,8 @@ public class DetectaSequenciaGeneticaService {
     private static final String PATTERN_G = "[G]{4,}";
     private static final String PATTERN_T = "[T]{4,}";
 
-    /**
+    
+	/**
      * Nível 1: Desenvolva um método ou função que esteja de acordo com a assinatura proposta
      * isSimian(String[] dna), que seja capaz de identificar corretamente símios.
      * 
