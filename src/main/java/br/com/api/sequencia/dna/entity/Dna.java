@@ -17,13 +17,19 @@ public class Dna {
     private Boolean simian;
     private String dna[];
 
+    /**
+     * @return the id
+     */
     @DynamoDBHashKey(attributeName = "id")
     public String getId() {
-        return id;
+    	return id;
     }
-
+    
+    /**
+     * @param id the id to set
+     */
     public void setId(String id) {
-        this.id = id;
+    	this.id = id;
     }
 
     /**
@@ -34,7 +40,8 @@ public class Dna {
         return sequencialdna;
     }
 
-    /**
+
+	/**
      * @param sequencialdna the sequencialdna to set
      */
     public void setSequencialdna(String sequencialdna) {
@@ -60,7 +67,7 @@ public class Dna {
     /**
      * @return the dna
      */
-
+    
     @DynamoDBIgnore
     public String[] getDna() {
         return dna;
@@ -71,5 +78,5 @@ public class Dna {
      */
     public void setDna(String[] dna) {
         this.dna = dna;
-    }
+    }   
 }

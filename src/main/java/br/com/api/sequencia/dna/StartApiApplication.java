@@ -3,6 +3,10 @@ package br.com.api.sequencia.dna;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Anderson Nascimento
+ *
+ */
 @SpringBootApplication
 public class StartApiApplication {
 

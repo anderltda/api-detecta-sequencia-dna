@@ -12,6 +12,10 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
+/**
+ * @author Anderson Nascimento
+ *
+ */
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "br.com.api.sequencia.dna.repository")
 public class DynamoDBConfig {

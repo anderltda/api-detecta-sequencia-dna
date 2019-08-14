@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.com.api.sequencia.dna.entity.Dna;
+import br.com.api.sequencia.dna.response.Response;
 import br.com.api.sequencia.dna.service.DetectaSequenciaGeneticaService;
 
 /**
@@ -41,6 +43,14 @@ public class ApiDnaController {
         final String body = "{\"dna\": \"".concat(String.valueOf(isSimian).concat("\"}"));
 
         return new ResponseEntity<String>(body, isSimian ? HttpStatus.OK : HttpStatus.FORBIDDEN);
+    }
+    
+    @RequestMapping(value = "/stats", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<Response> stats() {
+        
+        Response response = detectaSequenciaGeneticaService.stats();
+
+        return ResponseEntity.ok(response);
     }
 
 }
