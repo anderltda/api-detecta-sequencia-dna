@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import br.com.api.sequencia.dna.entity.Dna;
 
 @EnableScan
-public interface DnaRepository extends CrudRepository<Dna, String[]> {
+public interface DnaRepository extends CrudRepository<Dna, String> {
 	
 }

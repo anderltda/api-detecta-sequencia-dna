@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import br.com.api.sequencia.dna.entity.Dna;
+import br.com.api.sequencia.dna.repository.DnaRepository;
+import br.com.api.sequencia.dna.util.HelpUtil;
 
 /**
  * @author Anderson Nascimento
@@ -24,7 +27,26 @@ public class DetectaSequenciaGeneticaService {
     private static final String PATTERN_C = "[C]{4,}";
     private static final String PATTERN_G = "[G]{4,}";
     private static final String PATTERN_T = "[T]{4,}";
-
+    
+    @Autowired
+    private DnaRepository dnaRepository;
+    
+    /**
+     * Método responsável por inserir e atualizar os dados do DNA e checar se é um simian ou não
+     * @param dna
+     */
+    public boolean isSimian(Dna dna) {
+        
+        boolean simian = isSimian(dna.getDna());
+        
+        dna.setSequencialdna(HelpUtil.convertObjectForJson(dna.getDna()));
+        dna.setId(HelpUtil.removeCharacter(dna.getSequencialdna()));
+        dna.setSimian(simian);
+        
+        dnaRepository.save(dna);
+        
+        return simian;
+    }
     
 	/**
      * Nível 1: Desenvolva um método ou função que esteja de acordo com a assinatura proposta

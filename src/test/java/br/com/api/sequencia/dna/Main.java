@@ -1,21 +1,15 @@
 package br.com.api.sequencia.dna;
 
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import br.com.api.sequencia.dna.util.HelpUtil;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        String[] dna = {"CTGAGA", "CTATGC", "TATTGT", "AGAGGG", "TCCCCA", "TCACTG"};
-        Pattern p = Pattern.compile("\\$[ACGT]");
-        Matcher m = p.matcher("SATY");// r("846767676765");
+    public static void main(String[] args) throws Exception {
 
-        if (m.find()) {
-            System.out.println("true");
-        } else {
-            System.out.println("false");
-        }
+        String[] dna = {"CTGAGA", "CTATGC", "TATTGT", "AGAGGG", "TCCCCA", "TCACTG"};
+        
+        System.out.println(HelpUtil.convertObjectForJson(dna).replaceAll("\\W", ""));
+
     }
 
 }
