@@ -23,14 +23,16 @@ public class Response implements Serializable {
 	private double count_human_dna;
 	private double ratio;
 	
-	public Response(List<Dna> values) {
+	public Response(List<Dna> dnas) {
 		
 		this.count_mutant_dna = 0d;
 		this.count_human_dna = 0d;
 		this.ratio = 0d;
 
-		if(!StringUtils.isEmpty(values)) {
-			for (Dna dna : values) {
+		if(!StringUtils.isEmpty(dnas)) {
+			
+			for (Dna dna : dnas) {
+				
 				if(dna.getSimian()) {
 					count_mutant_dna++;
 				} else {

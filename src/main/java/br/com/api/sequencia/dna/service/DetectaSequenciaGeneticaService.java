@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.api.sequencia.dna.entity.Dna;
 import br.com.api.sequencia.dna.repository.DnaRepository;
 import br.com.api.sequencia.dna.response.Response;
-import br.com.api.sequencia.dna.util.HelpUtil;
 
 /**
  * @author Anderson Nascimento
@@ -24,8 +21,6 @@ import br.com.api.sequencia.dna.util.HelpUtil;
 @Transactional
 public class DetectaSequenciaGeneticaService {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(DetectaSequenciaGeneticaService.class);
-
     private static final String PATTERN_A = "[A]{4,}";
     private static final String PATTERN_C = "[C]{4,}";
     private static final String PATTERN_G = "[G]{4,}";
@@ -51,9 +46,7 @@ public class DetectaSequenciaGeneticaService {
     public boolean isSimian(Dna dna) {
         
         boolean simian = isSimian(dna.getDna());
-        
-        dna.setSequencialdna(HelpUtil.convertObjectForJson(dna.getDna()));
-        dna.setId(HelpUtil.removeCharacter(dna.getSequencialdna()));
+
         dna.setSimian(simian);
         
         dnaRepository.save(dna);
@@ -65,7 +58,7 @@ public class DetectaSequenciaGeneticaService {
      * Método responsável por ser capaz de identificar corretamente símios de um humano.
      * 
      * @param dna - Array de DNA(s)
-     * @return
+     * @return - verdadeiro ou falso
      */
     public boolean isSimian(String[] dna) {
 
@@ -106,8 +99,8 @@ public class DetectaSequenciaGeneticaService {
      * Método privado responsável por verificar sequencia nas diagonais da matriz, e transforma-lá
      * em uma matriz horizontal
      * 
-     * @param arrayDiagonais
-     * @return Lista organizada em uma matriz horizontal
+     * @param arrayDiagonais - Array bidimensional
+     * @return - Lista organizada em uma matriz horizontal
      */
     private List<String> diagonais(final String[][] arrayDiagonais) {
 
@@ -136,16 +129,15 @@ public class DetectaSequenciaGeneticaService {
         return diagonais;
     }
 
-
     /**
      * Método privado responsável por verificar cada nó do DNA e checar se existe uma sequencia
      * 
      * @param dna - Nó de cada DNA
-     * @return verdadeiro ou falso
+     * @return - verdadeiro ou falso
      */
     private boolean is(final String dna) {
 
-        String patterns[] = {PATTERN_A, PATTERN_C, PATTERN_G, PATTERN_T};
+        String patterns[] = { PATTERN_A, PATTERN_C, PATTERN_G, PATTERN_T };
 
         for (String regex : patterns) {
 
@@ -159,5 +151,4 @@ public class DetectaSequenciaGeneticaService {
 
         return false;
     }
-
 }

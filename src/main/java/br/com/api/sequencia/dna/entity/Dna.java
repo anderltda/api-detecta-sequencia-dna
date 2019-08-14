@@ -1,18 +1,26 @@
 package br.com.api.sequencia.dna.entity;
 
+import java.io.Serializable;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+import br.com.api.sequencia.dna.util.HelpUtil;
 
 /**
  * @author Anderson Nascimento
  *
  */
 @DynamoDBTable(tableName = "DNA")
-public class Dna {
+public class Dna implements Serializable {
 
-    private String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
     private String sequencialdna;
     private Boolean simian;
     private String dna[];
@@ -78,5 +86,7 @@ public class Dna {
      */
     public void setDna(String[] dna) {
         this.dna = dna;
+        this.sequencialdna = HelpUtil.convertObjectForJson(dna);
+        this.id = HelpUtil.removeCharacter(this.sequencialdna);
     }   
 }
