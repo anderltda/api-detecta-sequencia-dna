@@ -22,3 +22,5 @@ Todas as dependências devem ser baixadas
 4. Abra o link abaixo
 
 - http://localhost:5000
+- http://localhost:5000/simian
+- http://localhost:5000/stats
