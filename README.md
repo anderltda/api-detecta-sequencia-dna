@@ -31,3 +31,6 @@ Todas as dependências devem ser baixadas
 - HTTP GET - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/
 - HTTP POST - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/simian
 - HTTP GET - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/stats
+
+
+https://github.com/anderltda/api-detecta-sequencia-dna/invitations
