@@ -6,8 +6,8 @@ https://github.com/anderltda/api-detecta-sequencia-dna/invitations
 
 - Acesse um terminal
 - Execute a seguinte linha de comando:
-	
-	git clone https://github.com/anderltda/api-detecta-sequencia-dna
+
+    $ git clone https://github.com/anderltda/api-detecta-sequencia-dna
 	
 - Acesse a pasta do projeto api-detecta-sequencia-dna
 - Execute a seguinte linha de comando na raiz do projeto:
@@ -18,12 +18,12 @@ https://github.com/anderltda/api-detecta-sequencia-dna/invitations
 - Vá até a pasta target dentro do mesmo diretorio
 - Execute a seguinte linha de comando:
 
-	java -jar api-detecta-sequencia-dna-1.0.0.jar
+	$ java -jar api-detecta-sequencia-dna-1.0.0.jar
 
 - Abra o browser
 - Digite na barra de endereco
 
-	http://localhost:5000
+	$ http://localhost:5000
 	
 	
 	
