@@ -29,12 +29,19 @@ public class ApiDnaController {
     @Autowired
     private DetectaSequenciaGeneticaService detectaSequenciaGeneticaService;
 
+    /**
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> version() {
         final String body = "{ \"applicationName\": \"Teste Símios - Mercado Livre - Api Sequencia DNA\", \"applicationVersion\" : \"".concat(applicationVersion).concat("\"}");
         return new ResponseEntity<String>(body, HttpStatus.OK);
     }
 
+    /**
+     * @param dna
+     * @return
+     */
     @RequestMapping(value = "/simian", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> simian(@RequestBody Dna dna) {
 
@@ -45,9 +52,11 @@ public class ApiDnaController {
         return new ResponseEntity<String>(body, isSimian ? HttpStatus.OK : HttpStatus.FORBIDDEN);
     }
     
+    /**
+     * @return
+     */
     @RequestMapping(value = "/stats", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Response> stats() {
         return ResponseEntity.ok(new Response(detectaSequenciaGeneticaService.stats()));
     }
-
 }
