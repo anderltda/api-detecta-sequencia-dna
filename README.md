@@ -19,8 +19,15 @@ Todas as dependências devem ser baixadas
         java -jar api-detecta-sequencia-dna-1.0.0.jar
         
 3. Abra o browser
-4. Abra o link abaixo
+4. Abra uns dos links abaixo
 
 - http://localhost:5000
 - http://localhost:5000/simian
 - http://localhost:5000/stats
+
+
+### Abaixo segue os links do ambiente em nuvem 
+
+- HTTP GET - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/
+- HTTP POST - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/simian
+- HTTP GET - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/stats
