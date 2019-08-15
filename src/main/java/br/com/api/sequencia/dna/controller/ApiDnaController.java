@@ -31,7 +31,7 @@ public class ApiDnaController {
 
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> version() {
-        final String body = "{ \"applicationName\": \"Api Sequencia DNA\", \"applicationVersion\" : \"".concat(applicationVersion).concat("\"}");
+        final String body = "{ \"applicationName\": \"Teste Símios - Mercado Livre - Api Sequencia DNA\", \"applicationVersion\" : \"".concat(applicationVersion).concat("\"}");
         return new ResponseEntity<String>(body, HttpStatus.OK);
     }
 

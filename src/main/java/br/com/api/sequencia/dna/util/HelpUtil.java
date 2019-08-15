@@ -12,8 +12,8 @@ public class HelpUtil {
 
     /**
      * Converte object em json
-     * @param object
-     * @return
+     * @param object - Object que será convertido em JSON
+     * @return - string com JSON convertido
      */
     public static String convertObjectForJson(Object object) {
 
@@ -30,11 +30,10 @@ public class HelpUtil {
         return jsonArray;
     }
 
-    
     /**
      * Remove caracteres especiais 
-     * @param object
-     * @return
+     * @param object - string com os caracteres especiais
+     * @return - string com os caracteres especiais removidos
      */
     public static String removeCharacter(String object) {
         if(StringUtils.isEmpty(object)) {

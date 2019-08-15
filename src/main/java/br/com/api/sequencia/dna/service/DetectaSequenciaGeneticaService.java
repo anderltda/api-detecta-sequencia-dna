@@ -6,6 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,7 @@ public class DetectaSequenciaGeneticaService {
      * a ​quantidade de DNA’s símios, quantidade de DNA’s humanos, e a proporção de símios para 
      * a população humana.
      */
+    @Cacheable("stats-cache")
     public Response stats() {
     	return new Response((List<Dna>) dnaRepository.findAll());
     }
@@ -43,6 +46,7 @@ public class DetectaSequenciaGeneticaService {
      * 
      * @param dna - Object a ser persistido
      */
+    @CachePut("stats-cache")
     public boolean isSimian(Dna dna) {
         
         boolean simian = isSimian(dna.getDna());
