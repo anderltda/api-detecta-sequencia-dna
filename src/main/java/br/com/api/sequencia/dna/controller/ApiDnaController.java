@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.api.sequencia.dna.entity.Dna;
 import br.com.api.sequencia.dna.response.Response;
 import br.com.api.sequencia.dna.service.DetectaSequenciaGeneticaService;
+import br.com.api.sequencia.dna.util.HelpUtil;
 
 /**
  * 
@@ -34,7 +34,8 @@ public class ApiDnaController {
      */
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> version() {
-        final String body = "{ \"applicationName\": \"Teste Símios - Mercado Livre - Api Sequencia DNA\", \"applicationVersion\" : \"".concat(applicationVersion).concat("\"}");
+        final String body = "{ \"application\": \"Teste Símios - Mercado Livre - Api Sequencia DNA\", \"version\" : \""
+                        .concat(applicationVersion).concat("\"}");
         return new ResponseEntity<String>(body, HttpStatus.OK);
     }
 
@@ -45,13 +46,21 @@ public class ApiDnaController {
     @RequestMapping(value = "/simian", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> simian(@RequestBody Dna dna) {
 
-        boolean isSimian = detectaSequenciaGeneticaService.isSimian(dna);
-        
-        final String body = "{\"dna\": \"".concat(String.valueOf(isSimian).concat("\"}"));
+        if (HelpUtil.validCharacter(dna.getId())) {
 
-        return new ResponseEntity<String>(body, isSimian ? HttpStatus.OK : HttpStatus.FORBIDDEN);
+            boolean isSimian = detectaSequenciaGeneticaService.isSimian(dna);
+
+            final String body = "{\"dna\": \"".concat(String.valueOf(isSimian).concat("\"}"));
+
+            return new ResponseEntity<String>(body, isSimian ? HttpStatus.OK : HttpStatus.FORBIDDEN);
+
+        } else {
+
+            return new ResponseEntity<String>("{ \"erro\": \"As letras da String só podem ser: (A, T, C, G) , que representa cada base nitrogenada do DNA\" }",
+                    HttpStatus.BAD_REQUEST);
+        }
     }
-    
+
     /**
      * @return
      */

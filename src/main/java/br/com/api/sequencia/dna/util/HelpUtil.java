@@ -42,4 +42,19 @@ public class HelpUtil {
         return object.replaceAll("\\W", "");
     }
     
+    
+    /**
+     * Valida os caracteres validos 
+     * @param object - string com os caracteres a serem verificados
+     * @return - verdadeiro ou falso
+     */
+    public static boolean validCharacter(String object) {
+        if(StringUtils.isEmpty(object)) {
+            return false;
+        }
+        
+        String value = object.replace("A", "").replace("C", "").replace("G", "").replace("T", "");
+        
+        return value.isEmpty();
+    }
 }
