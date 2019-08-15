@@ -33,7 +33,7 @@ public class DetectaSequenciaGeneticaService {
 	 * onde deve informar a ​quantidade de DNA’s símios, quantidade de DNA’s
 	 * humanos, e a proporção de símios para a população humana.
 	 * 
-	 * @return - Object response, com os dados
+	 * @return - Todos os DNA(s)
 	 */
 	public List<Dna> stats() {
 		return (List<Dna>) dnaRepository.findAll();
