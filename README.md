@@ -16,23 +16,9 @@ Todas as dependências devem ser baixadas
 1. Abra o diretorio target
 2. Execute o seguinte comando
 
-        java -jar api-detecta-sequencia-dna-1.0.0.jar s
+        java -jar api-detecta-sequencia-dna-1.0.0.jar
         
-- -DproxyEnabled=true
-- -DproxyHost=localhost
-- -DproxyPort=8080
-- -DproxyUsername=fred
-- -DproxyPassword=Password123
+3. Abra o browser
+4. Abra o link abaixo
 
-If the tests fail screenshots will be saved in ${project.basedir}/target/screenshots
-
-If you need to force a binary overwrite you can do:
-
-- -Doverwrite.binaries=true
-
-### It's not working!!!
-
-You have probably got outdated driver binaries, by default they are not overwritten if they already exist to speed things up.  You have two options:
-
-- `mvn clean verify -Doverwrite.binaries=true`
-- Delete the `selenium_standalone_binaries` folder in your resources directory
+- http://localhost:5000
