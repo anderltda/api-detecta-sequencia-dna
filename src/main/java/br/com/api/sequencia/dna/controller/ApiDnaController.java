@@ -47,10 +47,7 @@ public class ApiDnaController {
     
     @RequestMapping(value = "/stats", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Response> stats() {
-        
-        Response response = detectaSequenciaGeneticaService.stats();
-
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(new Response(detectaSequenciaGeneticaService.stats()));
     }
 
 }
