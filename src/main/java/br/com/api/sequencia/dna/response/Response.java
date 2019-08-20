@@ -40,7 +40,11 @@ public class Response implements Serializable {
 				}
 			}
 			
-			ratio = (count_mutant_dna / count_human_dna);
+			if(count_human_dna > 0) {
+			    ratio = (count_mutant_dna / count_human_dna);
+			} else {
+			    ratio = (count_mutant_dna);
+			}
 		}	
 	}
 	
