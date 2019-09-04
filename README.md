@@ -26,9 +26,3 @@ Todas as dependências devem ser baixadas
 - http://localhost:5000/stats
 
 
-### Abaixo segue os links do ambiente em nuvem 
-
-- HTTP GET - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/
-- HTTP POST - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/simian
-- HTTP GET - http://apidetectasequenciadna-env.iqm6qncc7i.us-east-1.elasticbeanstalk.com/stats
-
